@@ -23,8 +23,8 @@ class CustomException(Exception):
     
 
 #if __name__ == "__main__":
- #   try:
-  #      a = 100/0
-   # except:
-    #    logger.logging.info('Divide By Zero Error')
-     #   raise CustomException(Exception, sys)
+#    try:
+#        a = 100/0
+#    except:
+#        logger.logging.info('Divide By Zero Error')
+#        raise CustomException(Exception, sys)
