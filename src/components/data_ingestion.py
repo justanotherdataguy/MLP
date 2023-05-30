@@ -12,6 +12,9 @@ from dataclasses import dataclass
 #To check if transformation.pkl is saving
 from src.components.data_transformation import DataTransformation, DataTransformationConfig
 
+#To check if the trainer.pkl file works
+from src.components.model_trainer import ModelTrainer, ModelTrainerConfig
+
 @dataclass
 class DataIngestionConfig:
     train_data_path: str = os.path.join('artifact', "train.csv")
@@ -60,4 +63,8 @@ if __name__=="__main__":
     train_data, test_data = obj.initiate_data_ingestion()
 
     data_tranformation = DataTransformation()
-    data_tranformation.initiate_data_transformation(train_data, test_data)
+    train_arr, test_arr,_ = data_tranformation.initiate_data_transformation(train_data, test_data)
+
+    model_trainer = ModelTrainer()
+    best_model, score = model_trainer.initiate_model_trainer(train_array=train_arr, test_array=test_arr)
+    print(best_model, " with r2_score of", score)
